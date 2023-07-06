@@ -20,3 +20,14 @@ main article,
 main aside {
     overflow-y: auto;
 }
+
+/*colors and style*/
+body main{
+    background-color: darkslategrey;
+}
+aside {
+    background-color: blanchedalmond;
+}
+header {
+    background-color: darkkhaki;
+}
