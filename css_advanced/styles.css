@@ -16,7 +16,7 @@
 /*GLOBAL*/
 /*borders*/
 
-/******
+/**
 body, header, main, footer {
     border: var(--container-border);
 }
@@ -32,7 +32,7 @@ div {
 h1, h2, h3, a, p, img, blockquote, button{
     border: var(--item-border);
 }
-*****/
+**/
 
 /**BODY**/
 /*=====structure=====*/
@@ -51,9 +51,14 @@ body {
 
 /**==========HEADER==========**/
     /*=====structure=====*/
-
-header {
+.background-image {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header-container {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
@@ -61,10 +66,9 @@ header {
     display: flex;
     justify-content: space-between;
 }
-
     /*****dimensions*****/
 
-header {
+.header-container {
     height: 29.46px;
     width: 1103.41px;
 }
@@ -75,6 +79,9 @@ header {
 .logo {
     height: 29.46px;
     width: 167.02px;
+}
+a {
+    color: var(--white-font);
 }
 
 /********M  A  I  N*********/
@@ -130,8 +137,7 @@ button {
     color: var(--white-font);
 }
 /**image**/
-.section-banner,
- header {
+.background-image {
     background-image: url(assets/Object.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -192,6 +198,7 @@ blockquote {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: var(--site-width);
 }
        /**typography**/
 .section-quote {
@@ -276,6 +283,7 @@ blockquote {
     height: 502px;
     justify-content: space-evenly;
     color: var(--white-font);
+    width: var(--site-width);
 }
 .membership-container {
     display: flex;
