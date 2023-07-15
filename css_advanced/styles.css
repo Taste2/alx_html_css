@@ -61,6 +61,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 .nav-menu {
     display: flex;
@@ -82,6 +83,12 @@ body {
 }
 a {
     color: var(--white-font);
+}
+.w-6 {
+    height: 30px;
+}
+.hamburger {
+    display: none;
 }
 
 /********M  A  I  N*********/
@@ -109,6 +116,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
      /***DIMENSIONS***/
@@ -176,6 +184,7 @@ span {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .quote-block {
     display: flex;
@@ -225,6 +234,7 @@ blockquote {
     flex-direction: row;
     align-items: center;
     color: var(--span-color);
+    flex-wrap: wrap;
 
 }
 .video-block {
@@ -257,6 +267,7 @@ blockquote {
     justify-content: space-between;
     align-items: flex-start;
     width: inherit;
+    flex-wrap: wrap;
 }
 .play {
     position: absolute;
@@ -288,6 +299,7 @@ blockquote {
 .membership-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .member-block {
     display: flex;
@@ -322,6 +334,7 @@ blockquote {
 .faq-block {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     height: 707px;
     width: 920px;
     justify-content: space-evenly;
@@ -354,7 +367,25 @@ blockquote {
     width: 900px;
     justify-content: space-between;
     margin-top: 90px;
+    flex-wrap: wrap;
 }
 .footer-container p {
     color: var(--white-font);
+}
+
+/*responsiveness*/
+@media screen and (max-width: 480px) {
+    .nav-menu {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    body .works-on-small-screens {
+        display: block;
+    }
+    body .works-on-small-screens main {
+        display: block;
+    }
+    
 }
