@@ -1,0 +1,114 @@
+<!--an HTML survey form with a select dropdown
+to collect user preferences, along with time and date selection-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <style>
+        form {
+        /* Center the form on the page */
+        margin: 0 auto;
+        width: 400px;
+        /* Form outline */
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+  
+      form li+li {
+        margin-top: 1em;
+      }
+  
+      label {
+        /* Uniform size & alignment */
+        display: inline-block;
+        width: 90px;
+        text-align: right;
+      }
+  
+      #name,
+      #email {
+        /* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+        font: 1em sans-serif;
+  
+        /* Uniform text field size */
+        width: 300px;
+        box-sizing: border-box;
+  
+        /* Match form field borders */
+        border: 1px solid #999;
+      }
+  
+      #fieldset, #time {
+        margin-top: 1em;
+      }
+  
+      input:focus {
+        /* Additional highlight for focused elements */
+        border-color: #000;
+      }
+
+      .button {
+        /* Align buttons with the text fields */
+        padding-left: 90px;
+        /* same size as the label elements */
+        margin-top: 1em
+      }
+  
+      button {
+        /* This extra margin represent roughly the same space as the space
+       between the labels and their text fields */
+        margin-left: 0.5em;
+      }
+    </style>
+</head>
+<body>
+    <form action="/html_forms/" method="post">
+        <h2>Survey form</h2>
+        <p>Required fields are followed by <span aria-label="required">*</span></p>
+        <ul>
+            <li>
+                <label for="name">Name:<span aria-label="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </li>
+
+            <li>
+                <label for="email">Email:<span aria-label="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </li>
+        </ul>
+
+        <fieldset id="fieldset">
+            <legend>Favourite color</legend>
+            <select name="color" id="color" required>
+                <option value="red">Red</option >
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+            </select>
+        </fieldset>
+        <ul>
+            <li>
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" required>
+            </li>
+            <li>
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+            </li>
+        </ul>
+        <ul class="button">
+            <li><button type="submit">Submit Survey</button></li>
+        </ul>
+    </form>
+</body>
+</html>
