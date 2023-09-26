@@ -1,0 +1,122 @@
+<!--an HTML feedback form with checkboxes to capture user opinions and the ability to upload a file:-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        form {
+          /* Center the form on the page */
+          margin: 0 auto;
+          width: 400px;
+          /* Form outline */
+          padding: 1em;
+          border: 1px solid #ccc;
+          border-radius: 1em;
+        }
+    
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+    
+        form li+li {
+          margin-top: 1em;
+        }
+    
+        label {
+          /* Uniform size & alignment */
+          display: inline-block;
+          width: 90px;
+          text-align: right;
+        }
+    
+        #name,
+        #email {
+          /* To make sure that all text fields have the same font settings
+         By default, textareas have a monospace font */
+          font: 1em sans-serif;
+    
+          /* Uniform text field size */
+          width: 300px;
+          box-sizing: border-box;
+    
+          /* Match form field borders */
+          border: 1px solid #999;
+        }
+    
+        #fieldset {
+          margin-top: 1em;
+        }
+    
+        input:focus {
+          /* Additional highlight for focused elements */
+          border-color: #000;
+        }
+
+        #file_upload {
+          margin-top: 1em;
+        }
+    
+        .button {
+          /* Align buttons with the text fields */
+          padding-left: 90px;
+          /* same size as the label elements */
+          margin-top: 1em
+        }
+    
+        button {
+          /* This extra margin represent roughly the same space as the space
+         between the labels and their text fields */
+          margin-left: 0.5em;
+        }
+      </style>
+</head>
+<body>
+    <form action="/html_forms/" method="post">
+        <h2>Feedback</h2>
+        <p>Required fields are followed by <span aria-label="required">*</span></p>
+        <ul>
+            <li>
+                <label for="name">Name:<span aria-label="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </li>
+
+            <li>
+                <label for="email">Email:<span aria-label="required">*</span></label>
+                <input type="email" name="email" id="email" required>
+            </li>
+        </ul>
+
+        <fieldset id="fieldset">
+            <legend>Rate your satisfaction</legend>
+            <ul>
+                <li>
+                    <label for="excellent">Excellent</label>
+                    <input type="checkbox" id="excellent" name="satisfaction" checked>
+                </li>
+                <li>
+                    <label for="good">Good</label>
+                    <input type="checkbox" id="good" name="satisfaction">
+                </li>
+                <li>
+                    <label for="average">Average</label>
+                    <input type="checkbox" id="average" name="satisfaction">
+                </li>
+                <li>
+                    <label for="poor">Poor</label>
+                    <input type="checkbox" id="poor" name="satisfaction">
+                </li>
+            </ul>
+        </fieldset>
+        <input type="file" id="file_upload" name="file" required>
+        <ul>
+            <li class="button">
+              <button type="submit">Send feedback</button>
+            </li>
+          </ul>
+    </form>
+</body>
+</html>

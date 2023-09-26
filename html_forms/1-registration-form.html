@@ -1,0 +1,135 @@
+<!-- An HTML registration form-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        form {
+  /* Center the form on the page */
+  margin: 0 auto;
+  width: 400px;
+  /* Form outline */
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+form li + li {
+  margin-top: 1em;
+}
+
+label {
+  /* Uniform size & alignment */
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
+
+input,
+textarea {
+  /* To make sure that all text fields have the same font settings
+     By default, textareas have a monospace font */
+  font: 1em sans-serif;
+
+  /* Uniform text field size */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* Match form field borders */
+  border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus {
+  /* Additional highlight for focused elements */
+  border-color: #000;
+}
+
+textarea {
+  /* Align multiline text fields with their labels */
+  vertical-align: top;
+
+  /* Provide space to type some text */
+  height: 5em;
+}
+
+.button {
+  /* Align buttons with the text fields */
+  padding-left: 90px; /* same size as the label elements */
+}
+
+button {
+  /* This extra margin represent roughly the same space as the space
+     between the labels and their text fields */
+  margin-left: 0.5em;
+}
+    </style>
+</head>
+<body>
+    <form action="/html_forms/" method="post" id="registrationForm">
+        <h2>Registration Form</h2>
+        <p>Required fields are followed by <span aria-label="required">*</span></p>
+        <ul>
+            <li>
+                <label for="name">Name:<span aria-label="required">*</span></label>
+                <input type="text" id="name" name="username" placeholder="Name" required>
+            </li>
+
+            <li>
+                <label for="email">Email:<span aria-label="required">*</span></label>
+                <input type="email" name="user_email" id="email" placeholder="Email" required>
+            </li>
+
+            <li>
+                <label for="passwd">Password:<span aria-label="required">*</span></label>
+                <input type="password" id="passwd" name="password" placeholder="Password" required>
+            </li>
+
+            <li>
+                <label for="confirm_passwd">Confirm password:<span aria-label="required">*</span></label>
+                <input type="password" id="confirm_passwd" name="confirm_password" placeholder="Confirm password" required>
+            </li>
+
+            <span id="passwordMatchMessage" style="color: red;"></span><br>
+
+            <li class="button">
+                <button>Register</button>
+            </li>
+        </ul>
+    </form>
+
+    <script>
+        const passwordInput = document.getElementById("passwd");
+        const confirmPasswordInput = document.getElementById("confirm_passwd");
+        const passwordMatchMessage = document.getElementById("passwordMatchMessage");
+        const registrationForm = document.getElementById("registrationForm");
+
+        function checkPasswordMatch() {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                passwordMatchMessage.textContent = "Passwords do not match";
+                return false;
+            } else {
+                passwordMatchMessage.textContent = "";
+                return true;
+            }
+        }
+
+        function validateForm(event) {
+            if (!checkPasswordMatch()) {
+                event.preventDefault(); // Prevent form submission if passwords don't match
+            }
+        }
+
+        confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+        registrationForm.addEventListener("submit", validateForm);
+    </script>
+</body>
+</html>
